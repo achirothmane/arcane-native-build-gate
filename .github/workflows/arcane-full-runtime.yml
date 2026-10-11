@@ -1,0 +1,46 @@
+name: Arcane Full Runtime — Chromium
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/arcane-full-runtime.yml'
+      - 'runtime/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  full-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - name: Checkout experiment
+        uses: actions/checkout@v4
+        with:
+          path: experiment
+          persist-credentials: false
+      - name: Checkout pinned upstream Arcane
+        uses: actions/checkout@v4
+        with:
+          repository: getarcaneapp/arcane
+          ref: 670ee2b34ea7b0fb2917643229b6ce9070ee9742
+          path: arcane
+          persist-credentials: false
+      - name: Node 26
+        uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+      - name: Pinned pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          package_json_file: arcane/package.json
+          run_install: false
+      - name: Build and run both native Arcane images, test Chromium
+        shell: bash
+        run: bash experiment/runtime/full_runtime.sh
+      - name: Preserve evidence (success and failure)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arcane-full-runtime-v2.10.2
+          path: evidence/
+          if-no-files-found: warn
