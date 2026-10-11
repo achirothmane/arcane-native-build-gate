@@ -17,3 +17,7 @@ Independent read-only native build experiment, **not a released localization rep
 CI builds exact pinned public Arcane revisions on GitHub-hosted runners with read-only GitHub permissions, compiles Paraglide translation code, checks the baseline, verifies Git blob hashes before modifications, builds the candidate and uploads logs and diff artifacts. No commit or PR is sent upstream.
 
 **Decision: TEST ONLY / NO RELEASE.**
+
+## Real runtime visual review (October 11, 2026)
+
+The real Arcane Docker + Chromium test ran on upstream v2.10.2; the automated geometry metric improved from 3 clipped labels to 0. **Manual screenshot inspection still found icon/label and center-button overlap. The product is NOT visually fixed or ready for sale.** Read [the Arabic visual verdict](RUNTIME_VISUAL_REVIEW_AR.md) and [the official evidence run](https://github.com/achirothmane/arcane-native-build-gate/actions/runs/38181606075).
