@@ -99,7 +99,7 @@ def prepare_patches(root: pathlib.Path, version: str, git_checks=True):
         actual = shell("git", "rev-parse", "HEAD", cwd=root)
         if actual != cfg["commit"]:
             raise ValueError(f"Commit mismatch. Expected {cfg['commit']}, got {actual}")
-        if shell("git", "status", "--porcelain", cwd=root):
+        if shell("git", "status", "--porcelain", "--untracked-files=no", cwd=root):
             raise ValueError("Refusing to patch a dirty checkout")
 
     changes = {}

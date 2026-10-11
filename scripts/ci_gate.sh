@@ -5,6 +5,7 @@ mkdir -p evidence
 cd arcane
 export CI=true
 pnpm install --frozen-lockfile 2>&1 | tee ../evidence/pnpm-install.log
+pnpm --filter arcane-frontend paraglide:compile 2>&1 | tee ../evidence/paraglide-compile.log
 
 function gate() {
   local label="$1"
