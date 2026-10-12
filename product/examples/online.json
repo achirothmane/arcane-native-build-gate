@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "base_url": "http://127.0.0.1:8000",
+  "pages": [
+    {
+      "name": "homepage",
+      "path": "/home"
+    }
+  ],
+  "locales": [
+    {
+      "name": "en",
+      "path_prefix": "/en",
+      "require_text": "Dashboard"
+    },
+    {
+      "name": "fr",
+      "path_prefix": "/fr",
+      "require_text": "Tableau de bord"
+    }
+  ],
+  "viewports": [
+    {
+      "name": "mobile",
+      "width": 320,
+      "height": 760
+    },
+    {
+      "name": "desktop",
+      "width": 1366,
+      "height": 900
+    }
+  ],
+  "critical_selectors": [
+    "nav"
+  ],
+  "settle_ms": 250,
+  "require_text": ""
+}

@@ -1,0 +1,31 @@
+name: Localized UI QA
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  localization:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Start test application
+        run: |
+          # Replace with your project's start script
+          npm ci
+          npm run build
+          npm run preview -- --host 127.0.0.1 --port 4173 &
+      - name: Localization Visual Gate
+        uses: achirothmane/arcane-native-build-gate/product@main
+        with:
+          config: .lrg.json
+          output: localization-evidence
+      - name: Upload evidence (sensitive UI: review GitHub access)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: localization-evidence
+          path: localization-evidence/
+          if-no-files-found: warn

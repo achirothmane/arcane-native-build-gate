@@ -1,0 +1,30 @@
+{
+  "schema_version": "1",
+  "base_url": "http://localhost:8000",
+  "fixture_root": "../tests/fixtures",
+  "pages": [
+    {
+      "name": "broken",
+      "path": "/bad",
+      "fixture": "bad.html"
+    }
+  ],
+  "locales": [
+    {
+      "name": "fr",
+      "path_prefix": "/fr",
+      "require_text": "Tableau de bord"
+    }
+  ],
+  "viewports": [
+    {
+      "name": "mobile",
+      "width": 320,
+      "height": 760
+    }
+  ],
+  "critical_selectors": [
+    "[data-lrg-critical]"
+  ],
+  "min_text_length": 2
+}

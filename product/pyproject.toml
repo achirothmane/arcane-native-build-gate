@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "localization-visual-gate"
+version = "0.1.0"
+description = "Real-browser localization clipping and collision gate with evidence reports"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["playwright>=1.50,<2"]
+classifiers = ["Programming Language :: Python :: 3", "Environment :: Console", "Operating System :: OS Independent"]
+
+[project.scripts]
+lrg = "lrg.core:main"
+lrg-verify = "lrg.compare:main"
+
+[tool.setuptools.package-data]
+lrg = ["detector.js"]
+
+[tool.setuptools]
+packages = ["lrg"]

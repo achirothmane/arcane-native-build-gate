@@ -1,0 +1,9 @@
+{
+  "schema_version": "1",
+  "base_url": "http://127.0.0.1:8777",
+  "pages": [{"name":"navigation","path":"/bad.html"}],
+  "locales": [{"name":"fr","query_param":{"name":"lang","value":"fr"},"require_text":"Tableau de bord"}],
+  "viewports": [{"name":"mobile","width":320,"height":760}],
+  "critical_selectors": ["[data-lrg-critical]"],
+  "settle_ms": 50
+}

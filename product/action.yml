@@ -1,0 +1,28 @@
+name: Localization Visual Gate
+branding:
+  icon: eye
+  color: purple
+description: Check real browser localization clipping and control overlaps; emit evidence and fail on defects or unknowns.
+inputs:
+  config:
+    description: Path to the JSON scan configuration inside caller repository
+    required: true
+  output:
+    description: Artifact output directory, local to caller workspace
+    required: false
+    default: lrg-evidence
+runs:
+  using: composite
+  steps:
+    - name: Install Localization Visual Gate
+      shell: bash
+      run: |
+        python -m pip install "${{ github.action_path }}"
+        python -m playwright install --with-deps chromium
+    - name: Check localized UI
+      shell: bash
+      env:
+        LRG_CONFIG: ${{ inputs.config }}
+        LRG_OUTPUT: ${{ inputs.output }}
+      run: |
+        lrg --config "$LRG_CONFIG" --output "$LRG_OUTPUT"
