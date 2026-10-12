@@ -21,3 +21,9 @@ CI builds exact pinned public Arcane revisions on GitHub-hosted runners with rea
 ## Real runtime visual review (October 11, 2026)
 
 The real Arcane Docker + Chromium test ran on upstream v2.10.2; the automated geometry metric improved from 3 clipped labels to 0. **Manual screenshot inspection still found icon/label and center-button overlap. The product is NOT visually fixed or ready for sale.** Read [the Arabic visual verdict](RUNTIME_VISUAL_REVIEW_AR.md) and [the official evidence run](https://github.com/achirothmane/arcane-native-build-gate/actions/runs/38181606075).
+
+## Commercial product (separate from Arcane experiments)
+
+**[Localization Visual Gate v0.1.0](product/README.md)** — independent Chromium localization QA CLI, fix verification, JSON + HTML reports and evidence screenshots. [See product source and setup](product/) · [Commercial license terms](product/LICENSE.md) · [Buyer-facing product description](product/docs/PRODUCT_PAGE_EN.md).
+
+[Product integration CI: 10 tests + live localhost HTTP Chrome verification](https://github.com/achirothmane/arcane-native-build-gate/actions/runs/38200701312). The CI test result does not prove market demand or live payment availability. **Status: installable and tested; checkout and paid delivery not yet verified.**
